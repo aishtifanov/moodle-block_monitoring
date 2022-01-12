@@ -1,0 +1,155 @@
+<form name="rkp_prr_eks" method="post" action="htmlregionforms.php">
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="rkp_prr_eks" />
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=gray>
+<tr>
+	<th valign="top" nowrap="nowrap" ><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('nameofpokazatel', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('valueofpokazatel', 'block_monitoring') ?></th>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_'); ?></td>
+    <td align="left"><b> <?php print_string('f6_', 'block_monitoring') ?></b> </td>
+    <td align="left"> &nbsp; </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_1r'); ?></td>
+    <td align="left"> <?php print_string('f6_1r', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_1r">
+ 	       <option <?php if (isset($rec) && $rec->f6_1r == 0) echo 'selected' ?> value="0">--</option>
+ 	       <option <?php if (isset($rec) && $rec->f6_1r == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_1r == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_1_1'); ?></td>
+    <td align="left"> <?php print_string('f6_1_1', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_1_1">
+		   <option <?php if (isset($rec) && $rec->f6_1_1 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_1_1 == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_1_1 == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_2_1'); ?></td>
+    <td align="left"> <?php print_string('f6_2_1', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_2_1">
+		   <option <?php if (isset($rec) && $rec->f6_2_1 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_2_1 == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_2_1 == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_2_2'); ?></td>
+    <td align="left"> <?php print_string('f6_2_2', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_2_2">
+		   <option <?php if (isset($rec) && $rec->f6_2_2 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_2_2 == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_2_2 == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_2_3'); ?></td>
+    <td align="left"> <?php print_string('f6_2_3', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_2_3">
+		   <option <?php if (isset($rec) && $rec->f6_2_3 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_2_3 == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_2_3 == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_2_4'); ?></td>
+    <td align="left"> <?php print_string('f6_2_4', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_2_4">
+		   <option <?php if (isset($rec) && $rec->f6_2_4 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_2_4 == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_2_4 == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_2_5'); ?></td>
+    <td align="left"> <?php print_string('f6_2_5', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_2_5">
+	       <option <?php if (isset($rec) && $rec->f6_2_5 == 0) echo 'selected' ?> value="0">--</option>
+	       <option <?php if (isset($rec) && $rec->f6_2_5 == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_2_5 == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_3_'); ?></td>
+    <td align="left"> <?php print_string('f6_3_', 'block_monitoring') ?> </td>
+    <td align="left"> &nbsp; </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_3_1'); ?></td>
+    <td align="left"> <?php print_string('f6_3_1', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_3_1">
+		   <option <?php if (isset($rec) && $rec->f6_3_1 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_3_1 == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_3_1 == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_3_2'); ?></td>
+    <td align="left"> <?php print_string('f6_3_2', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_3_2">
+		   <option <?php if (isset($rec) && $rec->f6_3_2 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_3_2 == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_3_2 == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_3_3'); ?></td>
+    <td align="left"> <?php print_string('f6_3_3', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_3_3">
+		   <option <?php if (isset($rec) && $rec->f6_3_3 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_3_3 == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_3_3 == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_3_4'); ?></td>
+    <td align="left"> <?php print_string('f6_3_4', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_3_4">
+		   <option <?php if (isset($rec) && $rec->f6_3_4 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_3_4 == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_3_4 == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f6_3_5'); ?></td>
+    <td align="left"> <?php print_string('f6_3_5', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_3_5">
+		   <option <?php if (isset($rec) && $rec->f6_3_5 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_3_5 == 1) echo 'selected' ?> value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_3_5 == -1) echo 'selected' ?> value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+</table>

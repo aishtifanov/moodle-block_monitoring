@@ -1,0 +1,563 @@
+<form name="rkp_d" method="post" action="htmlregionforms.php">
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="rkp_d" />
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=gray>
+<tr>
+	<th valign="top" nowrap="nowrap" ><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('contolmeasure', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('contoldate', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('factdate', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('rekvizitsnormakt', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('hyperlinknormakt', 'block_monitoring') ?></th>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd1_'); ?></b></td>
+    <td align="left"> <?php print_string('fd1_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd1_plan)) print (get_rus_format_date($frm->fd1_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd1_factday) && $frm->fd1_factday!=0 &&  $frm->fd1_factmonth !=0 && $frm->fd1_factyear !=0)  {
+		 $frm->fd1_fact = get_timestamp_from_date($frm->fd1_factday, $frm->fd1_factmonth, $frm->fd1_factyear);
+      }
+   	  if (!isset($frm->fd1_fact)) $frm->fd1_fact = 0;  print_date_monitoring("fd1_factday", "fd1_factmonth", "fd1_factyear", $frm->fd1_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd1_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd1_rekv))  p($frm->fd1_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd1_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd1_link))  p($frm->fd1_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd2_'); ?></b></td>
+    <td align="left"> <?php print_string('fd2_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd2_plan)) print (get_rus_format_date($frm->fd2_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd2_factday) && $frm->fd2_factday!=0 &&  $frm->fd2_factmonth !=0 && $frm->fd2_factyear !=0)  {
+		 $frm->fd2_fact = get_timestamp_from_date($frm->fd2_factday, $frm->fd2_factmonth, $frm->fd2_factyear);
+      }
+      if (!isset($frm->fd2_fact)) $frm->fd2_fact = 0;
+      print_date_monitoring("fd2_factday", "fd2_factmonth", "fd2_factyear", $frm->fd2_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd2_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd2_rekv))  p($frm->fd2_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd2_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd2_link))  p($frm->fd2_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd3_'); ?></b></td>
+    <td align="left"> <?php print_string('fd3_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd3_plan)) print (get_rus_format_date($frm->fd3_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd3_factday) && $frm->fd3_factday!=0 &&  $frm->fd3_factmonth !=0 && $frm->fd3_factyear !=0)  {
+		 $frm->fd3_fact = get_timestamp_from_date($frm->fd3_factday, $frm->fd3_factmonth, $frm->fd3_factyear);
+      }
+        if (!isset($frm->fd3_fact)) $frm->fd3_fact = 0;  print_date_monitoring("fd3_factday", "fd3_factmonth", "fd3_factyear", $frm->fd3_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd3_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd3_rekv))  p($frm->fd3_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd3_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd3_link))  p($frm->fd3_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd4_'); ?></b></td>
+    <td align="left"> <?php print_string('fd4_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd4_plan)) print (get_rus_format_date($frm->fd4_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd4_factday) && $frm->fd4_factday!=0 &&  $frm->fd4_factmonth !=0 && $frm->fd4_factyear !=0)  {
+		 $frm->fd4_fact = get_timestamp_from_date($frm->fd4_factday, $frm->fd4_factmonth, $frm->fd4_factyear);
+      }
+        if (!isset($frm->fd4_fact)) $frm->fd4_fact = 0;  print_date_monitoring("fd4_factday", "fd4_factmonth", "fd4_factyear", $frm->fd4_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd4_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd4_rekv))  p($frm->fd4_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd4_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd4_link))  p($frm->fd4_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd5_'); ?></b></td>
+    <td align="left"> <?php print_string('fd5_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd5_plan)) print (get_rus_format_date($frm->fd5_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd5_factday) && $frm->fd5_factday!=0 &&  $frm->fd5_factmonth !=0 && $frm->fd5_factyear !=0)  {
+		 $frm->fd5_fact = get_timestamp_from_date($frm->fd5_factday, $frm->fd5_factmonth, $frm->fd5_factyear);
+      }
+        if (!isset($frm->fd5_fact)) $frm->fd5_fact = 0;  print_date_monitoring("fd5_factday", "fd5_factmonth", "fd5_factyear", $frm->fd5_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd5_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd5_rekv))  p($frm->fd5_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd5_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd5_link))  p($frm->fd5_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd6_'); ?></b></td>
+    <td align="left"> <?php print_string('fd6_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd6_plan)) print (get_rus_format_date($frm->fd6_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd6_factday) && $frm->fd6_factday!=0 &&  $frm->fd6_factmonth !=0 && $frm->fd6_factyear !=0)  {
+		 $frm->fd6_fact = get_timestamp_from_date($frm->fd6_factday, $frm->fd6_factmonth, $frm->fd6_factyear);
+      }
+        if (!isset($frm->fd6_fact)) $frm->fd6_fact = 0;  print_date_monitoring("fd6_factday", "fd6_factmonth", "fd6_factyear", $frm->fd6_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd6_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd6_rekv))  p($frm->fd6_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd6_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd6_link))  p($frm->fd6_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd7_'); ?></b></td>
+    <td align="left"> <?php print_string('fd7_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd7_plan)) print (get_rus_format_date($frm->fd7_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd7_factday) && $frm->fd7_factday!=0 &&  $frm->fd7_factmonth !=0 && $frm->fd7_factyear !=0)  {
+		 $frm->fd7_fact = get_timestamp_from_date($frm->fd7_factday, $frm->fd7_factmonth, $frm->fd7_factyear);
+      }
+        if (!isset($frm->fd7_fact)) $frm->fd7_fact = 0;  print_date_monitoring("fd7_factday", "fd7_factmonth", "fd7_factyear", $frm->fd7_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd7_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd7_rekv))  p($frm->fd7_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd7_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd7_link))  p($frm->fd7_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd8_'); ?></b></td>
+    <td align="left"> <?php print_string('fd8_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd8_plan)) print (get_rus_format_date($frm->fd8_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd8_factday) && $frm->fd8_factday!=0 &&  $frm->fd8_factmonth !=0 && $frm->fd8_factyear !=0)  {
+		 $frm->fd8_fact = get_timestamp_from_date($frm->fd8_factday, $frm->fd8_factmonth, $frm->fd8_factyear);
+      }
+
+        if (!isset($frm->fd8_fact)) $frm->fd8_fact = 0;  print_date_monitoring("fd8_factday", "fd8_factmonth", "fd8_factyear", $frm->fd8_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd8_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd8_rekv))  p($frm->fd8_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd8_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd8_link))  p($frm->fd8_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd8_0'); ?></b></td>
+    <td align="left"> <?php print_string('fd8_0', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd8_0plan)) print (get_rus_format_date($frm->fd8_0plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd8_0_factday) && $frm->fd8_0factday!=0 &&  $frm->fd8_0factmonth !=0 && $frm->fd8_0factyear !=0)  {
+		 $frm->fd8_0fact = get_timestamp_from_date($frm->fd8_0factday, $frm->fd8_0factmonth, $frm->fd8_0factyear);
+      }
+
+        if (!isset($frm->fd8_0fact)) $frm->fd8_0fact = 0;  print_date_monitoring("fd8_0factday", "fd8_0factmonth", "fd8_0factyear", $frm->fd8_0fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd8_0rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd8_0rekv))  p($frm->fd8_0rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd8_0link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd8_0link))  p($frm->fd8_0link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd8_1'); ?></b></td>
+    <td align="left"> <?php print_string('fd8_1', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd8_1plan)) print (get_rus_format_date($frm->fd8_1plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd8_1factday) && $frm->fd8_1factday!=0 &&  $frm->fd8_1factmonth !=0 && $frm->fd8_1factyear !=0)  {
+		 $frm->fd8_1fact = get_timestamp_from_date($frm->fd8_1factday, $frm->fd8_1factmonth, $frm->fd8_1factyear);
+      }
+
+        if (!isset($frm->fd8_1fact)) $frm->fd8_1fact = 0;  print_date_monitoring("fd8_1factday", "fd8_1factmonth", "fd8_1factyear", $frm->fd8_1fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd8_1rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd8_1rekv))  p($frm->fd8_1rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd8_1link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd8_1link))  p($frm->fd8_1link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd8_2'); ?></b></td>
+    <td align="left"> <?php print_string('fd8_2', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd8_2plan)) print (get_rus_format_date($frm->fd8_2plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd8_2factday) && $frm->fd8_2factday!=0 &&  $frm->fd8_2factmonth !=0 && $frm->fd8_2factyear !=0)  {
+		 $frm->fd8_2fact = get_timestamp_from_date($frm->fd8_2factday, $frm->fd8_2factmonth, $frm->fd8_2factyear);
+      }
+
+        if (!isset($frm->fd8_2fact)) $frm->fd8_2fact = 0;  print_date_monitoring("fd8_2factday", "fd8_2factmonth", "fd8_2factyear", $frm->fd8_2fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd8_2rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd8_2rekv))  p($frm->fd8_2rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd8_2link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd8_2link))  p($frm->fd8_2link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd9_'); ?></b></td>
+    <td align="left"> <?php print_string('fd9_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd9_plan)) print (get_rus_format_date($frm->fd9_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd9_factday) && $frm->fd9_factday!=0 &&  $frm->fd9_factmonth !=0 && $frm->fd9_factyear !=0)  {
+		 $frm->fd9_fact = get_timestamp_from_date($frm->fd9_factday, $frm->fd9_factmonth, $frm->fd9_factyear);
+      }
+
+        if (!isset($frm->fd9_fact)) $frm->fd9_fact = 0;  print_date_monitoring("fd9_factday", "fd9_factmonth", "fd9_factyear", $frm->fd9_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd9_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd9_rekv))  p($frm->fd9_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd9_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd9_link))  p($frm->fd9_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd9_0'); ?></b></td>
+    <td align="left"> <?php print_string('fd9_0', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd9_0plan)) print (get_rus_format_date($frm->fd9_0plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd9_0factday) && $frm->fd9_0factday!=0 &&  $frm->fd9_0factmonth !=0 && $frm->fd9_0factyear !=0)  {
+		 $frm->fd9_0fact = get_timestamp_from_date($frm->fd9_0factday, $frm->fd9_0factmonth, $frm->fd9_0factyear);
+      }
+        if (!isset($frm->fd9_0fact)) $frm->fd9_0fact = 0;  print_date_monitoring("fd9_0factday", "fd9_0factmonth", "fd9_0factyear", $frm->fd9_0fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd9_0rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd9_0rekv))  p($frm->fd9_0rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd9_0link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd9_0link))  p($frm->fd9_0link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd9_1'); ?></b></td>
+    <td align="left"> <?php print_string('fd9_1', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd9_1plan)) print (get_rus_format_date($frm->fd9_1plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd9_1factday) && $frm->fd9_1factday!=0 &&  $frm->fd9_1factmonth !=0 && $frm->fd9_1factyear !=0)  {
+		 $frm->fd9_1fact = get_timestamp_from_date($frm->fd9_1factday, $frm->fd9_1factmonth, $frm->fd9_1factyear);
+      }
+
+        if (!isset($frm->fd9_1fact)) $frm->fd9_1fact = 0;  print_date_monitoring("fd9_1factday", "fd9_1factmonth", "fd9_1factyear", $frm->fd9_1fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd9_1rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd9_1rekv))  p($frm->fd9_1rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd9_1link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd9_1link))  p($frm->fd9_1link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd9_2'); ?></b></td>
+    <td align="left"> <?php print_string('fd9_2', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd9_2plan)) print (get_rus_format_date($frm->fd9_2plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd9_2factday) && $frm->fd9_2factday!=0 &&  $frm->fd9_2factmonth !=0 && $frm->fd9_2factyear !=0)  {
+		 $frm->fd9_2fact = get_timestamp_from_date($frm->fd9_2factday, $frm->fd9_2factmonth, $frm->fd9_2factyear);
+      }
+
+        if (!isset($frm->fd9_2fact)) $frm->fd9_2fact = 0;  print_date_monitoring("fd9_2factday", "fd9_2factmonth", "fd9_2factyear", $frm->fd9_2fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd9_2rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd9_2rekv))  p($frm->fd9_2rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd9_2link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd9_2link))  p($frm->fd9_2link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd10_'); ?></b></td>
+    <td align="left"> <?php print_string('fd10_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd10_plan)) print (get_rus_format_date($frm->fd10_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd10_factday) && $frm->fd10_factday!=0 &&  $frm->fd10_factmonth !=0 && $frm->fd10_factyear !=0)  {
+		 $frm->fd10_fact = get_timestamp_from_date($frm->fd10_factday, $frm->fd10_factmonth, $frm->fd10_factyear);
+      }
+
+        if (!isset($frm->fd10_fact)) $frm->fd10_fact = 0;  print_date_monitoring("fd10_factday", "fd10_factmonth", "fd10_factyear", $frm->fd10_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd10_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd10_rekv))  p($frm->fd10_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd10_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd10_link))  p($frm->fd10_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd11_'); ?></b></td>
+    <td align="left"> <?php print_string('fd11_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd11_plan)) print (get_rus_format_date($frm->fd11_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd11_factday) && $frm->fd11_factday!=0 &&  $frm->fd11_factmonth !=0 && $frm->fd11_factyear !=0)  {
+		 $frm->fd11_fact = get_timestamp_from_date($frm->fd11_factday, $frm->fd11_factmonth, $frm->fd11_factyear);
+      }
+
+        if (!isset($frm->fd11_fact)) $frm->fd11_fact = 0;  print_date_monitoring("fd11_factday", "fd11_factmonth", "fd11_factyear", $frm->fd11_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd11_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd11_rekv))  p($frm->fd11_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd11_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd11_link))  p($frm->fd11_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd12_'); ?></b></td>
+    <td align="left"> <?php print_string('fd12_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd12_plan)) print (get_rus_format_date($frm->fd12_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd12_factday) && $frm->fd12_factday!=0 &&  $frm->fd12_factmonth !=0 && $frm->fd12_factyear !=0)  {
+		 $frm->fd12_fact = get_timestamp_from_date($frm->fd12_factday, $frm->fd12_factmonth, $frm->fd12_factyear);
+      }
+
+        if (!isset($frm->fd12_fact)) $frm->fd12_fact = 0;  print_date_monitoring("fd12_factday", "fd12_factmonth", "fd12_factyear", $frm->fd12_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd12_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd12_rekv))  p($frm->fd12_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd12_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd12_link))  p($frm->fd12_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd13_'); ?></b></td>
+    <td align="left"> <?php print_string('fd13_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd13_plan)) print (get_rus_format_date($frm->fd13_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd13_factday) && $frm->fd13_factday!=0 &&  $frm->fd13_factmonth !=0 && $frm->fd13_factyear !=0)  {
+		 $frm->fd13_fact = get_timestamp_from_date($frm->fd13_factday, $frm->fd13_factmonth, $frm->fd103factyear);
+      }
+
+        if (!isset($frm->fd13_fact)) $frm->fd13_fact = 0;  print_date_monitoring("fd13_factday", "fd13_factmonth", "fd13_factyear", $frm->fd13_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd13_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd13_rekv))  p($frm->fd13_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd13_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd13_link))  p($frm->fd13_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd14_'); ?></b></td>
+    <td align="left"> <?php print_string('fd14_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd14_plan)) print (get_rus_format_date($frm->fd14_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd14_factday) && $frm->fd14_factday!=0 &&  $frm->fd14_factmonth !=0 && $frm->fd14_factyear !=0)  {
+		 $frm->fd14_fact = get_timestamp_from_date($frm->fd14_factday, $frm->fd14_factmonth, $frm->fd14_factyear);
+      }
+
+        if (!isset($frm->fd14_fact)) $frm->fd14_fact = 0;  print_date_monitoring("fd14_factday", "fd14_factmonth", "fd14_factyear", $frm->fd14_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd14_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd14_rekv))  p($frm->fd14_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd14_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd14_link))  p($frm->fd14_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd15_'); ?></b></td>
+    <td align="left"> <?php print_string('fd15_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd15_plan)) print (get_rus_format_date($frm->fd15_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd15_factday) && $frm->fd15_factday!=0 &&  $frm->fd15_factmonth !=0 && $frm->fd15_factyear !=0)  {
+		 $frm->fd15_fact = get_timestamp_from_date($frm->fd15_factday, $frm->fd15_factmonth, $frm->fd15_factyear);
+      }
+
+        if (!isset($frm->fd15_fact)) $frm->fd15_fact = 0;  print_date_monitoring("fd15_factday", "fd15_factmonth", "fd15_factyear", $frm->fd15_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd15_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd15_rekv))  p($frm->fd15_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd15_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd15_link))  p($frm->fd15_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd16_'); ?></b></td>
+    <td align="left"> <?php print_string('fd16_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd16_plan)) print (get_rus_format_date($frm->fd16_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd16_factday) && $frm->fd16_factday!=0 &&  $frm->fd16_factmonth !=0 && $frm->fd16_factyear !=0)  {
+		 $frm->fd16_fact = get_timestamp_from_date($frm->fd16_factday, $frm->fd16_factmonth, $frm->fd16_factyear);
+      }
+
+        if (!isset($frm->fd16_fact)) $frm->fd16_fact = 0;  print_date_monitoring("fd16_factday", "fd16_factmonth", "fd16_factyear", $frm->fd16_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd16_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd16_rekv))  p($frm->fd16_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd16_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd16_link))  p($frm->fd16_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd17_'); ?></b></td>
+    <td align="left"> <?php print_string('fd17_', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php if (isset($frm->fd17_plan)) print (get_rus_format_date($frm->fd17_plan)); else print '-';?>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($frm->fd17_factday) && $frm->fd17_factday!=0 &&  $frm->fd17_factmonth !=0 && $frm->fd17_factyear !=0)  {
+		 $frm->fd17_fact = get_timestamp_from_date($frm->fd17_factday, $frm->fd17_factmonth, $frm->fd17_factyear);
+      }
+
+        if (!isset($frm->fd17_fact)) $frm->fd17_fact = 0;  print_date_monitoring("fd17_factday", "fd17_factmonth", "fd17_factyear", $frm->fd17_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd17_rekv" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd17_rekv))  p($frm->fd17_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd17_link" size="30" maxlength="255"
+       value="<?php if (isset($frm->fd17_link))  p($frm->fd17_link) ?>" />
+    </td>
+</tr>
+</table>
+
+

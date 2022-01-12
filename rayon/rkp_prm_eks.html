@@ -1,0 +1,121 @@
+<form name="rkp_prm_eks" method="post" action="htmlrayonforms.php">
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<input type="hidden" name="rid" value="<?php echo $rid ?>" />
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="rkp_prm_eks" />
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=gray>
+<tr>
+	<th valign="top" nowrap="nowrap" ><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('nameofpokazatel', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('valueofpokazatel', 'block_monitoring') ?></th>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f5_'); ?></b></td>
+    <td align="left"> <?php print_string('f5_', 'block_monitoring') ?> </td>
+    <td align="left"> &nbsp; </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f5_2m'); ?></b></td>
+    <td align="left"> <?php print_string('f5_2m', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f5_2m">
+		   <option <?php if (isset($rec) && $rec->f5_2m == 0) echo 'selected' ?>  value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f5_2m == 1) echo 'selected' ?>  value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f5_2m == -1) echo 'selected' ?>  value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f6_'); ?></b></td>
+    <td align="left"> <?php print_string('f6_', 'block_monitoring') ?> </td>
+    <td align="left"> &nbsp; </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f6_0'); ?></b></td>
+    <td align="left"> <?php print_string('f6_0', 'block_monitoring') ?> </td>
+    <td align="left"> &nbsp; </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f6_3_7_1'); ?></b></td>
+    <td align="left"> <?php print_string('f6_3_7_1', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_3_7_1">
+		   <option <?php if (isset($rec) && $rec->f6_3_7_1 == 0) echo 'selected' ?>  value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_3_7_1 == 1) echo 'selected' ?>  value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_3_7_1 == -1) echo 'selected' ?>  value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f6_3_7_2'); ?></b></td>
+    <td align="left"> <?php print_string('f6_3_7_2', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_3_7_2">
+		   <option <?php if (isset($rec) && $rec->f6_3_7_2 == 0) echo 'selected' ?>  value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_3_7_2 == 1) echo 'selected' ?>  value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_3_7_2 == -1) echo 'selected' ?>  value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f6_3_7_3'); ?></b></td>
+    <td align="left"> <?php print_string('f6_3_7_3', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_3_7_3">
+		   <option <?php if (isset($rec) && $rec->f6_3_7_3 == 0) echo 'selected' ?>  value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_3_7_3 == 1) echo 'selected' ?>  value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_3_7_3 == -1) echo 'selected' ?>  value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f6_3_7_4'); ?></b></td>
+    <td align="left"> <?php print_string('f6_3_7_4', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_3_7_4">
+		   <option <?php if (isset($rec) && $rec->f6_3_7_4 == 0) echo 'selected' ?>  value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_3_7_4 == 1) echo 'selected' ?>  value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_3_7_4 == -1) echo 'selected' ?>  value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f6_3_7_5'); ?></b></td>
+    <td align="left"> <?php print_string('f6_3_7_5', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f6_3_7_5">
+		   <option <?php if (isset($rec) && $rec->f6_3_7_5 == 0) echo 'selected' ?>  value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f6_3_7_5 == 1) echo 'selected' ?>  value="1"><?php  print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f6_3_7_5 == -1) echo 'selected' ?>  value="-1"><?php  print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+</table>
+
+<?php
+     if (!isregionviewoperator() && !israyonviewoperator())  {
+?>
+			<table border="0" align="center">
+			<tr valign="top">
+			    <td align="center"><input type="submit" value="<?php print_string('savechanges') ?>" />
+			    </td>
+			    </form>
+			    <td align="center">
+			    <?php
+			   		$options = array();
+				    $options['rid'] = $rid;
+				    $options['fid'] = $fid;
+				    $options['yid'] = $yid;
+				    $options['nm'] = $nm;
+				   	$options['sesskey'] = $USER->sesskey;
+				    print_single_button("listrayonforms.php", $options, get_string("revert"));
+			     ?>
+			    </td>
+			</tr>
+			</table>
+<?php
+		}
+?>
+

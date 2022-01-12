@@ -1,0 +1,95 @@
+<?php
+echo '<center>';
+helpbutton ('bkp_dolj', 'Методические рекомендации по заполнению таблицы БКП-сотр.(ООУ)', 'mou', true, true);
+echo '</center>';
+?>
+
+<form name="bkp_dolj" method="post" action="htmlforms.php">
+<input type="hidden" name="rid" value="<?php echo $rid ?>" />
+<input type="hidden" name="sid" value="<?php echo $sid ?>" />
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="bkp_dolj" />
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<!-- <table class="formtable" cellpadding="5"> -->
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=black>
+<tr>
+	<th valign="top" nowrap="nowrap" ><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('nameofpokazatel', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('kolphisperson', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('kolstavok', 'block_monitoring') ?></th>
+</tr>
+<?php
+  if (isset($rec)) {
+	  $arrec = (array)$rec;
+  }
+  $razdel = get_record ('monit_razdel', 'shortname', 'bkp_dolj');
+  // print_r($razdel);
+  if ($razdel)	{  		$fields = get_records ('monit_razdel_field', 'razdelid', $razdel->id);
+ 	    // print_r($fields);
+  		if ($fields) {
+  		    $num_I = -1;  $num_II = 1;
+
+  		    $SUM_1 = $SUM_2 = 0;
+            foreach ($fields as $field)  {
+				if (isset($arrec[$field->name_field]) &&  $arrec[$field->name_field]> 0) {
+				    $SUM_1 += $arrec[$field->name_field];
+				}
+				$fieldname_st = $field->name_field . '_st';
+				if (isset($arrec[$fieldname_st]) &&  $arrec[$fieldname_st]> 0) {
+					$SUM_2 += $arrec[$fieldname_st];
+				}
+            }
+            foreach ($fields as $field)  {            	switch ($field->edizm)	{            		case 'null': $num_I++; $num_II = 1;
+            					 echo '<tr valign="top">';
+								 echo "<TD>$num_I</TD>";
+   								 echo "<TD><B>$field->name</B>";
+   								 echo "<A onclick=\"return ShowPrompt(event, '$field->name_field')\" href=\"#\">";
+   								 echo "<IMG class=\"iconhelp\" alt=\"\" src=\"$CFG->pixpath/help.gif\"></A>";
+						         echo "<DIV id=$field->name_field style=\"display:none\">";
+						         echo "<P><B>Методика</B><br>$field->help</P></DIV>";
+   								 echo '</TD><td align=center>';
+   								 if ($num_I == 0) {
+								     if ($SUM_1 > 0) {
+								     	echo "<b>$SUM_1</b>";
+								     }
+								     echo '</TD><TD align=center>';
+								     if ($SUM_2 > 0) {
+								     	echo "<b>$SUM_2</b>";
+								     }
+								     echo '</TD></tr>';
+								 }
+            		break;
+
+            		case 'man': case 'item':
+								echo '<tr valign="top">';
+								echo "<td align=left>$num_I.$num_II</td>";
+							    echo "<td align=left>$field->name</td>";
+							    echo "<td align=left> <input type=text name=$field->name_field size=3 maxlength=3 ";
+								if (isset($err[$field->name_field])) {									echo 'style="border-color:#FF0000"';
+								}
+								echo 'value=';
+								if (isset($arrec[$field->name_field]) &&  $arrec[$field->name_field]> 0) {									echo $arrec[$field->name_field];
+								}
+								echo '>&nbsp;' . get_string($field->edizm, 'block_monitoring');
+								echo '</td>';
+
+								$fieldname_st = $field->name_field . '_st';
+							    echo "<td align=left> <input type=text name=$fieldname_st size=5 maxlength=5 ";
+
+								if (isset($err[$fieldname_st])) {
+									echo 'style="border-color:#FF0000"';
+								}
+
+								echo 'value=';
+								if (isset($arrec[$fieldname_st]) &&  $arrec[$fieldname_st]> 0) {
+									echo $arrec[$fieldname_st];
+								}
+								echo '>&nbsp; ст.';
+								echo '</td></tr>';
+								$num_II++;
+            		break;
+            	}            }  		}  }
+?>
+

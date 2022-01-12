@@ -1,0 +1,63 @@
+<form name="rkp_prm_mo" method="post" action="htmlrayonforms.php">
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<input type="hidden" name="rid" value="<?php echo $rid ?>" />
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="rkp_prm_mo" />
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=gray>
+<tr>
+	<th valign="top" nowrap="nowrap" ><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('nameofpokazatel', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('valueofpokazatel', 'block_monitoring') ?></th>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f0_0_0m'); ?></b></td>
+    <td align="left"> <?php print_string('f0_0_0m', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f0_0_0m">
+	       <option <?php if (isset($rec) && $rec->f0_0_0m == 0) echo 'selected' ?> value="0">--</option>
+	       <option <?php if (isset($rec) && $rec->f0_0_0m == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+	 	   <option <?php if (isset($rec) && $rec->f0_0_0m == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f5_'); ?></b></td>
+    <td align="left"> <?php print_string('f5_', 'block_monitoring') ?> </td>
+    <td align="left"> &nbsp; </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f5_2_0m'); ?></b></td>
+    <td align="left"> <?php print_string('f5_2_0m', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f5_2_0m" size="20" maxlength="200"  <?php if (isset($err['f5_2_0m'])) echo 'style="border-color:#FF0000"' ?> value="<?php if (isset($rec)) p($rec->f5_2_0m) ?>" /> </td>
+</tr>
+</table>
+
+<?php
+     if (!isregionviewoperator() && !israyonviewoperator())  {
+?>
+
+		<table border="0" align="center">
+		<tr valign="top">
+		    <td align="center"><input type="submit" value="<?php print_string('savechanges') ?>" />
+		    </td>
+		    </form>
+		    <td align="center">
+		    <?php
+		   		$options = array();
+			    $options['rid'] = $rid;
+			    $options['fid'] = $fid;
+			    $options['yid'] = $yid;
+			    $options['nm'] = $nm;
+			   	$options['sesskey'] = $USER->sesskey;
+			    print_single_button("listrayonforms.php", $options, get_string("revert"));
+		     ?>
+		    </td>
+		</tr>
+		</table>
+
+<?php
+	}
+?>
+

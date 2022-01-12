@@ -1,0 +1,56 @@
+
+</div> <!-- end div containerContent -->
+<!-- START OF FOOTER -->
+<div id="footer">
+
+<?php if ($home) {  // This is what gets printed on the home page only
+?>
+
+
+<table width="100%">
+<tr>
+<td>
+
+<?php
+if(isloggedin()) {
+	echo "Вопросы и пожелания отправляйте <a href='mailto:nemzev@bsu.edu.ru'>Немцеву Александру Николаевичу</a> ";
+  echo "<p></p>";
+}
+?>
+
+</td>
+</tr>
+<tr>
+<td width="50%" align="right">
+
+<a href="http://www.ed.gov.ru/" target="_blank">
+<img src="<?php echo $CFG->wwwroot.'/theme/'.current_theme() ?>/images/fao.PNG"  border="0" alt="Федеральное агентство по образованию" align="left"></a>
+<a href="http://www.eurekanet.ru/" target="_blank">
+<img src="<?php echo $CFG->wwwroot.'/theme/'.current_theme() ?>/images/evrika.gif"  border="0" alt="ИОПП 'Эврика'" align="left"></a>
+<a href="http://edunews.eurekanet.ru/" target="_blank">
+<img src="<?php echo $CFG->wwwroot.'/theme/'.current_theme() ?>/images/vesti.gif"  border="0" alt="Вести образования" align="left"></a>
+
+
+<a href="http://moodle.org" target="_blank"><img src="<?php echo $CFG->wwwroot.'/theme/'.current_theme() ?>/images/moodlelogo.gif"  border="0"></a>
+<a href="http://sdo.bsu.edu.ru" target="_blank">
+<img src="<?php echo $CFG->wwwroot.'/theme/'.current_theme() ?>/images/BSUdo.gif"  border="0" alt="Центр дистанционного обучения БелГУ"></a>
+</td>
+</tr>
+</table>
+<?php }?>
+
+<?php if ($navigation) { ?>
+    <div class="navbar clearfix">
+        <div class="breadcrumb"><?php print_navigation($navigation); ?></div>
+        <div class="menu"><?php echo $menu; ?></div>
+    </div>
+<?php } ?>
+
+<?php if (!empty($performanceinfo)) {
+          echo $performanceinfo;
+} ?>
+
+</div>
+</div>
+</body>
+</html>

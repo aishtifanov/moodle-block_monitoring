@@ -1,0 +1,70 @@
+<form name="bkp_f" method="post" action="htmlforms.php">
+<input type="hidden" name="rid" value="<?php echo $rid ?>" />
+<input type="hidden" name="sid" value="<?php echo $sid ?>" />
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="bkp_f" />
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<!-- <table class="formtable" cellpadding="5"> -->
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=black>
+<tr>
+	<th valign="top" nowrap="nowrap" ><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('nameofpokazatel', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('valueofpokazatel', 'block_monitoring') ?></th>
+</tr>
+<?php
+  if (isset($rec)) {
+	  $arrec = (array)$rec;
+  }
+  $razdel = get_record ('monit_razdel', 'shortname', 'bkp_f');
+  // print_r($razdel);
+  if ($razdel)	{
+  		$fields = get_records ('monit_razdel_field', 'razdelid', $razdel->id);
+ 	    // print_r($fields);
+  		if ($fields) {
+  			$num_II = 0;
+            foreach ($fields as $field)  {
+            	switch ($field->edizm)	{
+            		case 'null': echo '<tr valign="top">';
+								 $_num = translitfield($field->name_field);
+								 echo "<TD>$_num</TD>";
+   								 echo "<TD><B>$field->name</B>";
+  								 echo "<A onclick=\"return ShowPrompt(event, '$field->name_field')\" href=\"#\">";
+   								 echo "<IMG class=\"iconhelp\" alt=\"\" src=\"$CFG->pixpath/help.gif\"></A>";
+						         echo "<DIV id=$field->name_field style=\"display:none\">";
+						         echo "<P><B>Методика</B><br>$field->help</P></DIV>";
+   								 echo '</TD>';
+
+   								 echo '<TD>';
+								 if (isset($arrec[$field->name_field]) &&  $arrec[$field->name_field]> 0) {
+									 echo '<b style="color:green">' . $arrec[$field->name_field];
+								     echo '&nbsp;' . get_string('trub', 'block_monitoring') . '</b>';
+							  	 }
+							     echo '</TD></tr>';
+            		break;
+
+            		case 'trub':
+								echo '<tr valign="top">';
+								$_num = translitfield($field->name_field);
+								echo "<td align=left>$_num</td>";
+							    echo "<td align=left>$field->name</td>";
+							    echo "<td align=left> <input type=text name=$field->name_field size=12 maxlength=12 ";
+								if (isset($err[$field->name_field])) {
+									echo 'style="border-color:#FF0000"';
+								}
+								echo 'value=';
+								if (isset($arrec[$field->name_field]) &&  $arrec[$field->name_field]> 0) {
+									echo $arrec[$field->name_field];
+								}
+								echo '>&nbsp;' . get_string($field->edizm, 'block_monitoring');
+								echo '</td></tr>';
+								$num_II++;
+            		break;
+            	}
+            }
+  		}
+  }
+?>
+
+

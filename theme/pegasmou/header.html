@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html<?php echo $direction ?>>
+<head>
+    <?php echo $meta ?>
+    <title><?php echo $title ?></title>
+    <?php if (!$is_mou_page) include("$CFG->javascript"); 
+          else  {
+    ?>
+<STYLE>
+DIV.mou_prompts {
+ padding: 3px;
+ border: 1px solid #666;
+ border-right-width: 2px;
+ border-bottom-width: 2px;
+ display: none;
+ background-color: #D4E6EA;
+ color: #000;
+ font-size: 12px;
+ position: absolute;
+ z-index: 1;
+ width: 350px;
+}
+DIV.mou_prompts_show {
+ padding: 3px;
+ border: 1px solid #666;
+ border-right-width: 2px;
+ border-bottom-width: 2px;
+ display: block;
+ background-color: #D4E6EA;
+ color: #000;
+ font-size: 12px;
+ position: absolute;
+ z-index: 1;
+ width: 350px;
+}
+
+</STYLE>
+
+    
+              <script type="text/javascript" src="<?php echo $CFG->wwwroot.'/theme/'.current_theme() ?>/lib_js.js"></script>
+    <?php }  ?>
+</head>
+
+<body<?php
+    echo " $bodytags";
+    if ($focus) {
+        echo " onload=\"setfocus()\"";
+    }
+    ?>>
+<div id="page">
+
+<?php //Accessibility: 'headermain' is now H1, see theme/standard/styles_layout.css: .headermain
+      if ($home) {  // This is what gets printed on the home page only
+?>
+<div id="header-home" align=center class="clearfix">
+<OBJECT id=obj1 codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0 
+height=60 width=600 border=0 classid=clsid:D27CDB6E-AE6D-11CF-96B8-444553540000 VIEWASTEXT>
+<PARAM NAME="Movie" VALUE="maxi.swf">
+<PARAM NAME="Src" VALUE="<?php echo $CFG->wwwroot.'/theme/'.current_theme() ?>/maxi.swf">
+<embed width="495" height="70" quality="Best" name="obj1" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" src="<?php echo $CFG->wwwroot.'/theme/'.current_theme() ?>/maxi.swf" />                
+</OBJECT> 
+<div align=center><?php echo $menu ?></div>
+    </div>
+<?php } else if ($heading) {  // This is what gets printed on any other page with a heading 
+?>
+<div id="header" class="clearfix">
+<OBJECT id=obj1 codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0
+ height=40 width=800 border=0
+ classid=clsid:D27CDB6E-AE6D-11CF-96B8-444553540000 VIEWASTEXT>
+<PARAM NAME="Movie" VALUE="mini.swf">
+<PARAM NAME="Src" VALUE="<?php echo $CFG->wwwroot.'/theme/'.current_theme() ?>/mini.swf">
+ <embed width="800" height="40" quality="Best" name="obj1" type="application/x-shockwave-flash" 
+ pluginspage="http://www.macromedia.com/go/getflashplayer" 
+ src="<?php echo $CFG->wwwroot.'/theme/'.current_theme() ?>/mini.swf" />
+ </OBJECT> 
+
+     <div class="headermenu"><?php echo $menu ?></div>
+    </div>
+<?php } ?>
+<?php //Accessibility: breadcrumb trail/navbar now a DIV, not a table.
+      if ($navigation) { // This is the navigation bar with breadcrumbs  ?>
+    <div class="navbar clearfix">
+        <div class="breadcrumb"><?php print_navigation($navigation); ?></div>
+        <div class="navbutton"><?php echo $button; ?></div>
+    </div>   
+<?php } else if ($heading) { // If no navigation, but a heading, then print a line  
+?>
+        <hr />
+<?php } ?>
+    <!-- END OF HEADER -->
+    <div id="content">

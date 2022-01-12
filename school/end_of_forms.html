@@ -1,0 +1,23 @@
+</table>
+<?php  if (!isregionviewoperator() && !israyonviewoperator())  {  ?>
+<table border=0 align=center>
+<tr valign="top">
+    <td align=center><input type="submit" value="<?php print_string('savechanges') ?>" />
+    </td>
+    </form>
+    <td align="center">
+    <?php
+   		$options = array();
+	    $options['rid'] = $rid;
+	    $options['sid'] = $sid;
+	    $options['fid'] = $fid;
+	    $options['yid'] = $yid;
+	    $options['nm'] = $nm;
+	   	$options['sesskey'] = $USER->sesskey;
+	    print_single_button("listforms.php", $options, get_string("revert"));
+     ?>
+    </td>
+</tr>
+</table>
+<?php  }  ?>
+<DIV class=mou_prompts id=curr_prompt></DIV>

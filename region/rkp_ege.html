@@ -1,0 +1,70 @@
+<form name="rkp_ege" method="post" action="htmlregionforms.php">
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="rkp_ege" />
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=gray>
+<tr>
+	<th valign="top" nowrap="nowrap" ><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('nameofpokazatel', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('valueofpokazatel', 'block_monitoring') ?></th>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f3_2'); ?></b></td>
+    <td align="left"> <?php print_string('f3_2', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f3_2" size="10" maxlength="10"
+    <?php if (isset($err['f3_2'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec) && $rec->f3_2>0)  p($rec->f3_2) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f3_3_1r'); ?></b></td>
+    <td align="left"> <?php print_string('f3_3_1r', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f3_3_1r" size="10" maxlength="10"
+    <?php if (isset($err['f3_3_1r'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec) && $rec->f3_3_1r>0)  p($rec->f3_3_1r) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f3_3_2r'); ?></b></td>
+    <td align="left"> <?php print_string('f3_3_2r', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f3_3_2r" size="10" maxlength="10"
+    <?php if (isset($err['f3_3_2r'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec) && $rec->f3_3_2r>0)  p($rec->f3_3_2r) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f3_4r'); ?></b></td>
+    <td align="left"> <?php print_string('f3_4r', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f3_4r" size="10" maxlength="10"
+    <?php if (isset($err['f3_4r'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec) && $rec->f3_4r>0)  p($rec->f3_4r) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f3_5_1r'); ?></b></td>
+    <td align="left"> <?php print_string('f3_5_1r', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f3_5_1r" size="10" maxlength="10"
+    <?php if (isset($err['f3_5_1r'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec) && $rec->f3_5_1r>0)  p($rec->f3_5_1r) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f3_5_2r'); ?></b></td>
+    <td align="left"> <?php print_string('f3_5_2r', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f3_5_2r" size="10" maxlength="10"
+    <?php if (isset($err['f3_5_2r'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec) && $rec->f3_5_2r>0)  p($rec->f3_5_2r) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f5_5_1'); ?></b></td>
+    <td align="left"> <?php print_string('f5_5_1', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f5_5_1" size="10" maxlength="10"
+    <?php if (isset($err['f5_5_1'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec) && $rec->f5_5_1>0)  p($rec->f5_5_1) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('f5_5_2'); ?></b></td>
+    <td align="left"> <?php print_string('f5_5_2', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f5_5_2" size="10" maxlength="10"
+    <?php if (isset($err['f5_5_2'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec) && $rec->f5_5_2>0)  p($rec->f5_5_2) ?>" /> </td>
+</tr>
+</table>
+

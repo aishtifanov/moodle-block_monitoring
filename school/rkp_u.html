@@ -1,0 +1,353 @@
+<form name="rkp_u" method="post" action="htmlforms.php">
+<input type="hidden" name="rid" value="<?php echo $rid ?>" />
+<input type="hidden" name="sid" value="<?php echo $sid ?>" />
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="rkp_u" />
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<!-- <table class="formtable" cellpadding="5"> -->
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=black>
+<tr>
+	<th valign="top" nowrap="nowrap" ><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('nameofpokazatel', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('valueofpokazatel', 'block_monitoring') ?></th>
+</tr>
+<tr valign="top">
+   <TD>0</TD>
+   <TD><B>Информация о системе образования на всех уровнях</B></TD>
+   <TD></TD>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f0_1u'); ?></td>
+    <td align="left"> <?php print_string('f0_1u', 'block_monitoring'); ?>
+       <A onclick="return ShowPrompt(event, 'f0_1u')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f0_1u style="display:none"> <P><B>Методика</B><br>Указать текущее количество учащихся в данном месяце</P></DIV>
+    </td>
+    <td align="left"> <input type="text" name="f0_1u" size="10" maxlength="10"
+    <?php if (isset($err['f0_1u'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f0_1u) && $rec->f0_1u > 0) p($rec->f0_1u) ?>" />
+    &nbsp;чел.
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f0_2u'); ?></td>
+    <td align="left"> <?php print_string('f0_2u', 'block_monitoring') ?>
+       <A onclick="return ShowPrompt(event, 'f0_2u')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f0_2u style="display:none"> <P><B>Методика</B><br>Указать текущее количество классов в данном месяце. Классом считать совмещенные классы (например, 1-3, 2-4)</P></DIV>
+    </td>
+    <td align="left"> <input type="text" name="f0_2u" size="10" maxlength="10"
+    <?php if (isset($err['f0_2u'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f0_2u) && $rec->f0_2u>0) p($rec->f0_2u) ?>" />
+    &nbsp;шт.
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f0_8u'); ?></td>
+    <td align="left"> <?php print_string('f0_8u', 'block_monitoring') ?>
+       <A onclick="return ShowPrompt(event, 'f0_8u')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f0_8u style="display:none"> <P><B>Методика</B><br>Учреждения расположенные вне городов и поселков, считаются сельскими.</P></DIV>
+    </td>
+    <td align="left">
+	    <select size="1" name="f0_8u">
+	 	   <option <?php if (isset($rec->f0_8u) && $rec->f0_8u == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec->f0_8u) && $rec->f0_8u == -1)echo 'selected' ?> value="-1">сельское</option>
+		   <option <?php if (isset($rec->f0_8u) && $rec->f0_8u == 1) echo 'selected' ?> value="1">городское</option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f0_9u'); ?></td>
+    <td align="left"> <?php print_string('f0_9u', 'block_monitoring') ?>
+       <A onclick="return ShowPrompt(event, 'f0_9u')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f0_9u style="display:none"> <P><B>Методика</B><br>Указать текущее количество учащихся в данном месяце в 9-х классах.</P></DIV>
+    </td>
+    <td align="left"> <input type="text" name="f0_9u" size="10" maxlength="10"
+    <?php if (isset($err['f0_9u'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f0_9u) && $rec->f0_9u>0) p($rec->f0_9u) ?>" />
+    &nbsp;чел.
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f0_10u'); ?></td>
+    <td align="left"> <?php print_string('f0_10u', 'block_monitoring') ?>
+       <A onclick="return ShowPrompt(event, 'f0_10u')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f0_10u style="display:none"> <P><B>Методика</B><br>Указать текущее количество учащихся в данном месяце в 9-10 классах</P></DIV>
+      </td>
+    <td align="left"> <input type="text" name="f0_10u" size="10" maxlength="10"
+    <?php if (isset($err['f0_10u'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f0_10u) && $rec->f0_10u>0) p($rec->f0_10u) ?>" />
+    &nbsp;чел.
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f0_11u'); ?></td>
+    <td align="left"> <?php print_string('f0_11u', 'block_monitoring') ?>
+       <A onclick="return ShowPrompt(event, 'f0_11u')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f0_11u style="display:none"> <P><B>Методика</B><br>Указать текущее количество учащихся в данном месяце в 11-х классах</P></DIV>
+    </td>
+    <td align="left"> <input type="text" name="f0_11u" size="10" maxlength="10"
+    <?php if (isset($err['f0_11u'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f0_11u) && $rec->f0_11u>0) p($rec->f0_11u) ?>" />
+    &nbsp;чел.
+    </td>
+</tr>
+
+
+<tr valign="top">
+   <TD>1</TD>
+   <TD><B>Введение новой системы оплаты труда учителей (НСОТ)</B></TD>
+   <TD></TD>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f1_5u'); ?></td>
+    <td align="left"> <?php print_string('f1_5u', 'block_monitoring') ?>
+       <A onclick="return ShowPrompt(event, 'f1_5u')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f1_5u style="display:none"> <P><B>Методика</B><br>Да, если принято положение об оплате труда,положение о распределении стимулирующей части</P></DIV>
+
+    </td>
+    <td align="left">
+	    <select size="1" name="f1_5u">
+	 	   <option <?php if (isset($rec) && $rec->f1_5u == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f1_5u == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		   <option <?php if (isset($rec) && $rec->f1_5u == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+		</select>
+    </td>
+</tr>
+
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f1_5g-1'); ?></td>
+    <td align="left"> <?php print_string('f1_5g1', 'block_monitoring') ?>
+       <A onclick="return ShowPrompt(event, 'f1_5g1')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f1_5g1 style="display:none"> <P><B>Методика</B><br>Указать дату принятия.</P></DIV>
+    </td>
+    <td align="center">
+    <?php
+      if (isset($rec->f1_5_day) && $rec->f1_5_day!=0 &&  $rec->f1_5_month !=0 && $rec->f1_5_year !=0)  {
+		 $rec->f1_5g1 = get_timestamp_from_date($rec->f1_5_day, $rec->f1_5_month, $rec->f1_5_year);
+      }
+      if (isset($rec->f1_5g1))  {
+	      print_date_monitoring("f1_5_day", "f1_5_month", "f1_5_year", $rec->f1_5g1);
+	  }
+	  else {
+	      print_date_monitoring("f1_5_day", "f1_5_month", "f1_5_year", 0);
+	  }
+    ?>
+     </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f1_5g-2'); ?></td>
+    <td align="left"> <?php print_string('f1_5g2', 'block_monitoring') ?>
+       <A onclick="return ShowPrompt(event, 'f1_5g2')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f1_5g2 style="display:none"> <P><B>Методика</B><br>Указать название, номер идату принятых нормативных правовых актов.</P></DIV>
+    </td>
+    <td align="left"> <input type="text" name="f1_5g2" size="25" maxlength="255"
+    <?php if (isset($err['f1_5g2'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f1_5g2)) p($rec->f1_5g2) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f1_5g-3'); ?></td>
+    <td align="left"> <?php print_string('f1_5g3', 'block_monitoring') ?>
+       <A onclick="return ShowPrompt(event, 'f1_5g3')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f1_5g3 style="display:none"> <P><B>Методика</B><br>Указать ссылку в сети Интернет, ссылка должна быть рабочей.</P></DIV>
+    </td>
+    <td align="left"> <input type="text" name="f1_5g3" size="25" maxlength="255"
+    <?php if (isset($err['f1_5g3'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f1_5g2)) p($rec->f1_5g3) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+   <TD>2</TD>
+   <TD><B>Переход на нормативное подушевое финансирование общеобразовательных учреждений (НПФ)</B></TD>
+   <TD></TD>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f2_1u'); ?></td>
+    <td align="left"> <?php print_string('f2_1u', 'block_monitoring') ?>
+       <A onclick="return ShowPrompt(event, 'f2_1u')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f2_1u style="display:none"> <P><B>Методика</B><br>Да, если бюджет учреждения расчитывается как произведение количества учеников и нормативов согласно принятого закона.</P></DIV>
+    </td>
+    <td align="left">
+	    <select size="1" name="f2_1u">
+	 	   <option <?php if (isset($rec) && $rec->f2_1u == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f2_1u == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		   <option <?php if (isset($rec) && $rec->f2_1u == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f2_3u'); ?></td>
+    <td align="left"> <?php print_string('f2_3u', 'block_monitoring') ?>
+       <A onclick="return ShowPrompt(event, 'f2_3u')" href="#">
+       <IMG class="iconhelp" alt="" src="<?php  echo "$CFG->pixpath/help.gif" ?> "> </A>
+       <DIV id=f2_3u style="display:none"> <P><B>Методика</B><br>Да, если руководитель имеет право подписи платежных документов (платежных поручений).</P></DIV>
+    </td>
+    <td align="left">
+	    <select size="1" name="f2_3u">
+	 	   <option <?php if (isset($rec) && $rec->f2_3u == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f2_3u == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		   <option <?php if (isset($rec) && $rec->f2_3u == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+   <TD>4</TD>
+   <TD><B>Развитие сети общеобразовательных учреждений региона:
+                  обеспечение условий для получения качественного общего
+                  образования независимо от места жительства</B></TD>
+   <TD></TD>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f4_0_1'); ?></td>
+    <td align="left"> <?php print_string('f4_0_1', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f4_0_1">
+	 	   <option <?php if (isset($rec) && $rec->f4_0_1 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f4_0_1 == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		   <option <?php if (isset($rec) && $rec->f4_0_1 == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f4_0_2'); ?></td>
+    <td align="left"> <?php print_string('f4_0_2', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f4_0_2">
+	 	   <option <?php if (isset($rec) && $rec->f4_0_2 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f4_0_2 == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		   <option <?php if (isset($rec) && $rec->f4_0_2 == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f4_0_3'); ?></td>
+    <td align="left"> <?php print_string('f4_0_3', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f4_0_3">
+	 	   <option <?php if (isset($rec) && $rec->f4_0_3 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f4_0_3 == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		   <option <?php if (isset($rec) && $rec->f4_0_3 == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f4_1_8'); ?></td>
+    <td align="left"> <?php print_string('f4_1_8', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f4_1_8">
+	 	   <option <?php if (isset($rec) && $rec->f4_1_8 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f4_1_8 == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		   <option <?php if (isset($rec) && $rec->f4_1_8 == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f4_1_9'); ?></td>
+    <td align="left"> <?php print_string('f4_1_9', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f4_1_9">
+	 	   <option <?php if (isset($rec) && $rec->f4_1_9 == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f4_1_9 == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		   <option <?php if (isset($rec) && $rec->f4_1_9 == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+   <TD>5</TD>
+   <TD><B>Расширение общественного участия в управлении образованием</B></TD>
+   <TD></TD>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f5_1u'); ?></td>
+    <td align="left"> <?php print_string('f5_1u', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f5_1u">
+	 	   <option <?php if (isset($rec) && $rec->f5_1u == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f5_1u == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		   <option <?php if (isset($rec) && $rec->f5_1u == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f5_1g-1'); ?></td>
+    <td align="left"> <?php print_string('f5_1g1', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php
+      if (isset($rec->f5_1_day) && $rec->f5_1_day!=0 &&  $rec->f5_1_month !=0 && $rec->f5_1_year !=0)  {
+		 $rec->f5_1g1 = get_timestamp_from_date($rec->f5_1_day, $rec->f5_1_month, $rec->f5_1_year);
+      }
+      if (isset($rec->f5_1g1)) 	{
+	      print_date_monitoring("f5_1_day", "f5_1_month", "f5_1_year", $rec->f5_1g1);
+	  } else {
+	      print_date_monitoring("f5_1_day", "f5_1_month", "f5_1_year", 0);
+	  }
+    ?>
+     </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f5_1g-2'); ?></td>
+    <td align="left"> <?php print_string('f5_1g2', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f5_1g2" size="25" maxlength="499"
+    <?php if (isset($err['f5_1g2'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f5_1g2)) p($rec->f5_1g2) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f5_1g-3'); ?></td>
+    <td align="left"> <?php print_string('f5_1g3', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f5_1g3" size="25" maxlength="250"
+    <?php if (isset($err['f5_1g3'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f5_1g3)) p($rec->f5_1g3) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f5_3_0u'); ?></td>
+    <td align="left"> <?php print_string('f5_3_0u', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f5_3_0u">
+	 	   <option <?php if (isset($rec) && $rec->f5_3_0u == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f5_3_0u == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		   <option <?php if (isset($rec) && $rec->f5_3_0u == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f5_3g'); ?></td>
+    <td align="left"> <?php print_string('f5_3g', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f5_3g" size="25" maxlength="250"
+    <?php if (isset($err['f5_3g'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f5_3g)) p($rec->f5_3g) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f5_4_1u'); ?></td>
+    <td align="left"> <?php print_string('f5_4_1u', 'block_monitoring') ?> </td>
+    <td align="left">
+	    <select size="1" name="f5_4_1u">
+	 	   <option <?php if (isset($rec) && $rec->f5_4_1u == 0) echo 'selected' ?> value="0">--</option>
+		   <option <?php if (isset($rec) && $rec->f5_4_1u == -1) echo 'selected' ?> value="-1"><?php print_string('no'); ?></option>
+		   <option <?php if (isset($rec) && $rec->f5_4_1u == 1) echo 'selected' ?> value="1"><?php print_string('yes'); ?></option>
+		</select>
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f5_4g'); ?></td>
+    <td align="left"> <?php print_string('f5_4g', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f5_4g" size="25" maxlength="250"
+    <?php if (isset($err['f5_4g'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f5_4g)) p($rec->f5_4g) ?>" />
+    </td>
+</tr>
+

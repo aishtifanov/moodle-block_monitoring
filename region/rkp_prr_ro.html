@@ -1,0 +1,126 @@
+<form name="rkp_prr_ro" method="post" action="htmlregionforms.php">
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="rkp_prr_ro" />
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=gray>
+<tr>
+	<th valign="top" nowrap="nowrap"><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap"><?php print_string('nameofpokazatel', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap"><?php print_string('valueofpokazatel', 'block_monitoring') ?></th>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f1_'); ?></td>
+    <td align="left"><b><?php print_string('f1_', 'block_monitoring') ?> </b></td>
+    <td align="left"> &nbsp; </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f1_2_0'); ?></td>
+    <td align="left"> <?php print_string('f1_2_0', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f1_2_0" size="10" maxlength="10"
+     <?php if (isset($err['f1_2_0'])) echo 'style="border-color:#FF0000"' ?>
+     value="<?php if (isset($rec) && $rec->f1_2_0>0)  p($rec->f1_2_0) ?>" />
+     &nbsp;руб.
+     </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f2_'); ?></td>
+    <td align="left"> <b><?php print_string('f2_', 'block_monitoring') ?></b> </td>
+    <td align="left"> &nbsp; </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f2_4_1r'); ?></td>
+    <td align="left"> <?php print_string('f2_4_1r', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f2_4_1r" size="10" maxlength="10"
+    <?php if (isset($err['f2_4_1r'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec) && $rec->f2_4_1r>0)  p($rec->f2_4_1r) ?>" />
+    &nbsp;руб.
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f2_4_1g'); ?></td>
+    <td align="left"> <?php print_string('f2_4_1g', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f2_4_1g" size="20" maxlength="200"
+     <?php if (isset($err['f2_4_1g'])) echo 'style="border-color:#FF0000"' ?>
+     value="<?php if (isset($rec))  p($rec->f2_4_1g) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f2_4_2r'); ?></td>
+    <td align="left"> <?php print_string('f2_4_2r', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f2_4_2r" size="10" maxlength="10"
+     <?php if (isset($err['f2_4_2r'])) echo 'style="border-color:#FF0000"' ?>
+     value="<?php if (isset($rec) && $rec->f2_4_2r>0)  p($rec->f2_4_2r) ?>" />
+    &nbsp;руб.
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f2_4_2g'); ?></td>
+    <td align="left"> <?php print_string('f2_4_2g', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f2_4_2g" size="20" maxlength="200"
+    <?php if (isset($err['f2_4_2g'])) echo 'style="border-color:#FF0000"' ?>
+     value="<?php if (isset($rec->f2_4_2g))  p($rec->f2_4_2g) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f2_5_1r'); ?></td>
+    <td align="left"> <?php print_string('f2_5_1r', 'block_monitoring') ?> </td>
+    <td align="left">
+	 <?php
+	 // if (isset($rec) && $rec->f2_5_1r == 0) echo '<font color=red>?&nbsp;</font>';
+	// print_date_selector('f2_5_1rday', 'f2_5_1rmonth', 'f2_5_1ryear', $rec->f2_5_1r);
+     if (isset($rec->f2_5_1rday) && $rec->f2_5_1rday!=0 &&  $rec->f2_5_1rmonth !=0 && $rec->f2_5_1ryear !=0)  {
+		 $rec->f2_5_1r = get_timestamp_from_date($rec->f2_5_1rday, $rec->f2_5_1rmonth, $rec->f2_5_1ryear);
+     }
+ 	 print_date_monitoring('f2_5_1rday', 'f2_5_1rmonth', 'f2_5_1ryear', $rec->f2_5_1r);
+	 ?>
+     </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f2_5_1g'); ?></td>
+    <td align="left"> <?php print_string('f2_5_1g', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f2_5_1g" size="20" maxlength="200"
+    <?php if (isset($err['f2_5_1g'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec))  p($rec->f2_5_1g) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f3_'); ?></td>
+    <td align="left"><b><?php print_string('f3_', 'block_monitoring') ?></b> </td>
+    <td align="left"> &nbsp; </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f3_6_1g'); ?></td>
+    <td align="left"> <?php print_string('f3_6_1g', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f3_6_1g" size="20" maxlength="200"
+    <?php if (isset($err['f3_6_1g'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f3_6_1g))  p($rec->f3_6_1g) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f3_6_2g'); ?></td>
+    <td align="left"> <?php print_string('f3_6_2g', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f3_6_2g" size="20" maxlength="200"
+    <?php if (isset($err['f3_6_2g'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec->f3_6_2g))  p($rec->f3_6_2g) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f3_7_1g'); ?></td>
+    <td align="left"> <?php print_string('f3_7_1g', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f3_7_1g" size="20" maxlength="200"
+    <?php if (isset($err['f3_7_1g'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec))  p($rec->f3_7_1g) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f3_7_2g'); ?></td>
+    <td align="left"> <?php print_string('f3_7_2g', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f3_7_2g" size="20" maxlength="200"
+    <?php if (isset($err['f3_7_2g'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec))  p($rec->f3_7_2g) ?>" /> </td>
+</tr>
+<tr valign="top">
+    <td align="left"><?php  echo translitfield('f3_8g'); ?></td>
+    <td align="left"> <?php print_string('f3_8g', 'block_monitoring') ?> </td>
+    <td align="left"> <input type="text" name="f3_8g" size="20" maxlength="200"
+    <?php if (isset($err['f3_8g'])) echo 'style="border-color:#FF0000"' ?>
+    value="<?php if (isset($rec))  p($rec->f3_8g) ?>" /> </td>
+</tr>
+</table>
+

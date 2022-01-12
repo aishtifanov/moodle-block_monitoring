@@ -1,0 +1,64 @@
+<form name="bkp_pred" method="post" action="htmlforms.php">
+<input type="hidden" name="rid" value="<?php echo $rid ?>" />
+<input type="hidden" name="sid" value="<?php echo $sid ?>" />
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="rkp_prm_u" />
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<!-- <table class="formtable" cellpadding="5"> -->
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=black>
+<tr>
+	<th valign="top" nowrap="nowrap" ><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('nameofpokazatel', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('valueofpokazatel', 'block_monitoring') ?></th>
+</tr>
+
+<?php
+  if (isset($rec)) {
+	  $arrec = (array)$rec;
+  }
+  $razdel = get_record ('monit_razdel', 'shortname', 'rkp_prm_u');
+  // print_r($razdel);
+  if ($razdel)	{
+  		$fields = get_records ('monit_razdel_field', 'razdelid', $razdel->id);
+ 	    // print_r($fields);
+  		if ($fields) {
+  		    $yes = get_string('yes');
+  		    $no = get_string('no');
+            foreach ($fields as $field)  {
+            	switch ($field->edizm)	{
+            		case 'null': $num_I = translitfield($field->name_field);
+            					 echo '<tr valign="top">';
+								 echo "<TD>$num_I</TD>";
+   								 echo "<TD><B>$field->name</B></TD>";
+							     echo '<TD></TD></tr>';
+            		break;
+
+            		case 'bool': $num_II = translitfield($field->name_field);
+								echo '<tr valign="top">';
+								echo "<td align=left>$num_II</td>";
+							    echo "<td align=left>$field->name</td>";
+							    echo "<td align=left><select size=1 name={$field->name_field}>";
+								if (isset($arrec[$field->name_field]) &&  $arrec[$field->name_field] == 0) {
+							 	   echo '<option selected value="0">--</option>';
+							 	}  else {							 	   echo '<option value="0">--</option>';							 	}
+
+								if (isset($arrec[$field->name_field]) &&  $arrec[$field->name_field] == 1) {
+						   		   echo '<option selected value="1">'.$yes.'</option>';
+						   		}  else {
+						   		   echo '<option value="1">'.$yes.'</option>';						   		}
+								if (isset($arrec[$field->name_field]) &&  $arrec[$field->name_field] == -1) {
+						   		   echo '<option selected value="-1">'.$no.'</option>';
+						   		}  else {
+						   		   echo '<option value="-1">'.$no.'</option>';						   		}
+								echo '</select>';
+								echo '</td></tr>';
+								$num_II++;
+            		break;
+            	}
+            }
+  		}
+  }
+?>
+

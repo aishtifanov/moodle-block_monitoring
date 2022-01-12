@@ -1,0 +1,24 @@
+<?php
+     if (!isregionviewoperator())  {
+?>
+		<table border="0" align="center">
+		<tr valign="top">
+		    <td align="center"><input type="submit" value="<?php print_string('savechanges') ?>" />
+		    </td>
+		    </form>
+		    <td align="center">
+		    <?php
+		   		$options = array();
+			    $options['fid'] = $fid;
+			    $options['yid'] = $yid;
+			    $options['nm'] = $nm;
+			   	$options['sesskey'] = $USER->sesskey;
+			    print_single_button("region.php", $options, get_string("revert"));
+		     ?>
+		    </td>
+		</tr>
+		</table>
+<?php
+	 }
+?>
+

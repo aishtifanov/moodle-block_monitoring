@@ -1,0 +1,59 @@
+<form name="bkp_zp" method="post" action="htmlforms.php">
+<input type="hidden" name="rid" value="<?php echo $rid ?>" />
+<input type="hidden" name="sid" value="<?php echo $sid ?>" />
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="sn" value="bkp_zp" />
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<!-- <table class="formtable" cellpadding="5"> -->
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=black>
+<tr>
+	<th valign="top" nowrap="nowrap" ><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('nameofpokazatel', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('valueofpokazatel', 'block_monitoring') ?></th>
+</tr>
+<?php
+  if (isset($rec)) {
+	  $arrec = (array)$rec;
+  }
+  $razdel = get_record ('monit_razdel', 'shortname', 'bkp_zp');
+  // print_r($razdel);
+  if ($razdel)	{
+  		$fields = get_records ('monit_razdel_field', 'razdelid', $razdel->id);
+ 	    // print_r($fields);
+  		if ($fields) {
+  		    $num_I = 0;  $num_II = 1;
+            foreach ($fields as $field)  {
+            	switch ($field->edizm)	{
+            		case 'null': $num_I++; $num_II = 1;
+            					 echo '<tr valign="top">';
+								 echo "<TD>$num_I</TD>";
+   								 echo "<TD><B>$field->name</B></TD>";
+							     echo '<TD></TD></tr>';
+            		break;
+
+            		case 'proc':
+								echo '<tr valign="top">';
+								if (isset($field->name_field)) {									$_num = translitfield($field->name_field);
+								} else {									$_num = $num_I.$num_II;								}
+								echo "<td align=left>$_num</td>";
+							    echo "<td align=right>$field->name</td>";
+							    echo "<td align=left> <input type=text name=$field->name_field size=5 maxlength=5 ";
+								if (isset($err[$field->name_field])) {
+									echo 'style="border-color:#FF0000"';
+								}
+								echo 'value=';
+								if (isset($arrec[$field->name_field]) &&  $arrec[$field->name_field]> 0) {
+									echo $arrec[$field->name_field];
+								}
+								echo '>&nbsp;%';
+								echo '</td></tr>';
+								$num_II++;
+            		break;
+            	}
+            }
+  		}
+  }
+?>
+

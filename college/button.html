@@ -1,0 +1,37 @@
+<?php  if (!isregionviewoperator() && !israyonviewoperator())  {  ?>
+<table border=0 align=center>
+<tr valign=top>
+    <td >
+    <input name ="save" type="submit" value="<?php print_string('savechanges') ?>" />
+    <input name ="break" type="submit" value="<?php echo $break ?>" />
+<input type="hidden" name="rzd" value="<?php echo $rzd ?>" />
+<input type="hidden" name="rid" value="<?php echo $rid ?>" />
+<input type="hidden" name="sid" value="<?php echo $sid ?>" />
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="listformid" value="<?php echo $listformid ?>" />
+<input type="hidden" name="levelmonit" value="<?php echo $levelmonit ?>" />
+<input type="hidden" name="reported" value="<?php echo $reported ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="rkp_u" />
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+    </td>
+    </form>
+    <td align=center>
+    <?php
+   		$options = array();
+	    $options['rid'] = $rid;
+	    $options['sid'] = $sid;
+	    $options['fid'] = $fid;
+	    $options['yid'] = $yid;
+	    $options['rzd'] = $rzd;
+	    $options['nm'] = $nm;
+   	   // $options['level'] = $levelmonit;
+   	    $options['listformid'] = $listformid;
+	   	$options['sesskey'] = $USER->sesskey;
+	    print_single_button("listforms.php", $options, get_string("revert"));
+     ?>
+    </td>
+</tr>
+</table>
+<?php  }  ?>

@@ -1,0 +1,54 @@
+<form name="rkp_prr_eks" method="post" action="htmlforms.php">
+<input type="hidden" name="rid" value="<?php echo $rid ?>" />
+<input type="hidden" name="sid" value="<?php echo $sid ?>" />
+<input type="hidden" name="fid" value="<?php echo $fid ?>" />
+<input type="hidden" name="yid" value="<?php echo $yid ?>" />
+<input type="hidden" name="nm" value="<?php echo $nm ?>" />
+<input type="hidden" name="sn" value="rkp_du" />
+<input type="hidden" name="sesskey" value="<?php echo $USER->sesskey ?>">
+<table border="1" cellspacing="2" cellpadding="5" align="center" bordercolor=black>
+<tr>
+	<th valign="top" nowrap="nowrap" ><?php print_string('symbolnumber', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('contolmeasure', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('factdate', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('rekvizitsnormakt', 'block_monitoring') ?></th>
+	<th valign="top" nowrap="nowrap" ><?php print_string('hyperlinknormakt', 'block_monitoring') ?></th>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd_u_1'); ?></b></td>
+    <td align="left"> <?php print_string('fd_u_1', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php
+      if (isset($rec->fd_u_1_factday) && $rec->fd_u_1_factday!=0 &&  $rec->fd_u_1_factmonth !=0 && $rec->fd_u_1_factyear !=0)  {
+		 $rec->fd_u_1_fact = get_timestamp_from_date($rec->fd_u_1_factday, $rec->fd_u_1_factmonth, $rec->fd_u_1_factyear);
+      }
+  	  if (!isset($rec->fd_u_1_fact))  $rec->fd_u_1_fact = 0;
+        print_date_monitoring('fd_u_1_factday', 'fd_u_1_factmonth', 'fd_u_1_factyear', $rec->fd_u_1_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd_u_1_rekv" size="30" maxlength="500" value="<?php if (isset($rec->fd_u_1_rekv))  p($rec->fd_u_1_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd_u_1_link" size="30" maxlength="500" value="<?php if (isset($rec->fd_u_1_link))  p($rec->fd_u_1_link) ?>" />
+    </td>
+</tr>
+<tr valign="top">
+    <td align="left"><b><?php  echo translitfield('fd_u_2'); ?></b></td>
+    <td align="left"> <?php print_string('fd_u_2', 'block_monitoring') ?> </td>
+    <td align="center">
+    <?php
+      if (isset($rec->fd_u_2_factday) && $rec->fd_u_2_factday!=0 &&  $rec->fd_u_2_factmonth !=0 && $rec->fd_u_2_factyear !=0)  {
+		 $rec->fd_u_2_fact = get_timestamp_from_date($rec->fd_u_2_factday, $rec->fd_u_2_factmonth, $rec->fd_u_2_factyear);
+      }
+	  if (!isset($rec->fd_u_2_fact))  $rec->fd_u_2_fact = 0;
+      print_date_monitoring('fd_u_2_factday', 'fd_u_2_factmonth', 'fd_u_2_factyear', $rec->fd_u_2_fact);
+    ?>
+     </td>
+    <td align="center">
+       <input type="text" name="fd_u_2_rekv" size="30" maxlength="500" value="<?php if (isset($rec->fd_u_2_rekv))  p($rec->fd_u_2_rekv) ?>" />
+    </td>
+    <td align="center">
+       <input type="text" name="fd_u_2_link" size="30" maxlength="500" value="<?php if (isset($rec->fd_u_2_link))  p($rec->fd_u_2_link) ?>" />
+    </td>
+</tr>
